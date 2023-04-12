@@ -361,6 +361,7 @@ header {
 	height: 400px;
 	width: 400px;
 	transition: background-size .2s ease-out;
+	border-radius: 15px;
 }
 
 .port-tab:hover {
