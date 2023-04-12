@@ -511,6 +511,15 @@ footer {
 	line-height: 21px
 }
 
+
+.info-block {
+	transition: opacity .3s ease-in;
+	opacity: 0;
+}
+.box-show {
+	opacity: 1;
+}
+
 @media (max-width: 1200px) {
 	[class*="__container"] {
 		max-width: 900px;
