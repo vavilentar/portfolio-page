@@ -521,6 +521,18 @@ footer {
 	opacity: 1;
 }
 
+.header-contacts {
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
+}
+
+.header-contacts a {
+	display: block;
+	width: fit-content;
+	font-weight: 700;
+}
+
 @media (max-width: 1200px) {
 	[class*="__container"] {
 		max-width: 900px;
