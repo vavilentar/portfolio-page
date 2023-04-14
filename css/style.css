@@ -614,6 +614,11 @@ footer {
 		font-size: 52px;
 		line-height: 55px;
 	 }	
+	 .promo-links {
+		align-items: flex-start;
+		flex-direction: column;
+		row-gap: 15px;
+	 }
 }
 
 @media (max-width: 400px) {
