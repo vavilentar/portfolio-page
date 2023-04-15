@@ -4,6 +4,28 @@
 	--main-color-hover: #f8b840;
 }
 
+@keyframes dotMove {
+	0% {
+		height: 0;
+		width: 0;
+		opacity: 0;
+		left: 50%;
+	}
+	100% {
+		left: -15px;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
 /*Imports*/
 
 
@@ -38,10 +60,13 @@ a {
 	text-decoration: none;
 	font-family: 'Noto Sans';
 	color: #252525;
+}
+
+.link_underline {
 	position: relative;
 }
 
-a::after {
+.link_underline::after {
 	position: absolute;
 	content: '';
 	background-color: #ffa600;
@@ -52,7 +77,7 @@ a::after {
 	transition: width .2s ease;
 }
 
-a:hover::after {
+.link_underline:hover::after {
 	width: 100%;
 }
 
@@ -124,10 +149,12 @@ header {
 }
 
 .promo-title h2 {
+	opacity: 0;
 	font-weight: 700;
 	font-size: 22px;
 	line-height: 24px;
-
+	animation: fadeIn .5s ease-in forwards;
+	animation-delay: .7s;
 }
 
 .promo-name::before {
@@ -138,25 +165,30 @@ header {
 	background-color: var(--main-color);
 	z-index: -1;
 	top: -12px;
-	left: -15px;
 	border-radius: 50px;
-
+	animation: dotMove .8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 }
 
 .promo-title h1 {
 	font-weight: 700;
 	font-size: 62px;
 	line-height: 60px;
+	opacity: 0;
+	animation: fadeIn .5s ease-in forwards;
+	animation-delay: 1s;
 }
 
 .promo-links {
 	column-gap: 50px;
 	display: flex;
 	align-items: center;
-
+	opacity: 0;
+	animation: fadeIn .5s ease-in forwards;
+	animation-delay: 1.2s;
 }
 
-.promo-links button,.contacts__btn {
+.promo-links button,
+.contacts__btn {
 	font-weight: 700;
 	font-size: 18px;
 	line-height: 21px;
@@ -166,9 +198,13 @@ header {
 	background: var(--main-color);
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 	transition: background-color .2s ease-in-out;
+	opacity: 0;
+	animation: fadeIn .5s ease-in forwards;
+	animation-delay: 1.2s;
 }
 
-.promo-links button:hover, .contacts__btn:hover {
+.promo-links button:hover,
+.contacts__btn:hover {
 	background-color: var(--main-color-hover);
 }
 
@@ -189,6 +225,20 @@ header {
 .socials {
 	display: flex;
 	column-gap: 20px;
+}
+
+.socials-header {
+	opacity: 0;
+	animation: fadeIn .5s ease-in forwards;
+	animation-delay: 1.3s;
+}
+
+.socials a {
+	transition: transform .2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.socials a:hover {
+	transform: scale(1.1);
 }
 
 .about-me {
@@ -212,23 +262,15 @@ header {
 	row-gap: 15px;
 }
 
-.about-me-info h2,
-.exp h2,
-.skills h2,
-.portfolio h2,
-.footer-info h2 {
+.subtitle {
 	font-weight: 700;
-	font-size: 36px;
-	line-height: 60px;
+	font-size: 32px;
+	line-height: 56px;
 	position: relative;
 	margin-left: 25px;
 }
 
-.about-me-info h2::after,
-.exp h2::after,
-.skills h2::after,
-.portfolio h2::after,
-.footer-info h2:after {
+.subtitle::after{
 	position: absolute;
 	content: '';
 	background-color: #ffa600;
@@ -238,34 +280,24 @@ header {
 	left: 0;
 }
 
-.about-me-info p,
-.exp p:nth-child(1),
-.skills p:nth-child(1),
-.portfolio p:nth-child(1),
-.prices p:nth-child(1),
-.footer-info p:nth-child(1) {
+.dot-p {
 	font-weight: 700;
 	font-size: 18px;
 	line-height: 24px;
 	position: relative;
 	z-index: 2;
 	margin-left: 25px;
-
+	position: relative;
 }
 
-.about-me-info p:nth-child(1):after,
-.exp p:nth-child(1):after,
-.skills p:nth-child(1)::after,
-.portfolio p:nth-child(1)::after,
-.prices p:nth-child(1)::after,
-.footer-info p:nth-child(1)::after {
+.dot-p::after {
 	content: '';
 	position: absolute;
-	height: 50px;
-	width: 50px;
+	height: 35px;
+	width: 35px;
 	background-color: var(--main-color);
 	z-index: -1;
-	top: -12px;
+	top: -5px;
 	left: -15px;
 	border-radius: 50px;
 }
@@ -292,6 +324,7 @@ header {
 	display: flex;
 	flex-direction: column;
 	row-gap: 15px;
+	margin-left: 25px;
 }
 
 .exp-tab h3 {
@@ -353,36 +386,60 @@ header {
 	gap: 25px;
 }
 
-.port-tab{
+.port-tab {
 	display: block;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 100%;
 	height: 400px;
 	width: 400px;
-	transition: background-size .2s ease-out;
+	transition: background-size .2s ease-out, filter .2s ease-out;
 	border-radius: 15px;
+	filter: saturate(0.5);
+	position: relative;
+}
+
+.port-tab h5 {
+	position: absolute;
+	bottom: 25px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 20px;
+	color: white;
+	background-color: #252525;
+	padding: 5px 15px;
+	transition: color .2s ease;
 }
 
 .port-tab:hover {
 	background-size: 110%;
+	filter: saturate(1);
+}
+
+.port-tab:hover h5 {
+	color: var(--main-color)
 }
 
 .port-tab:nth-child(1) {
 	background-image: url(../img/Portfolio/birds.jpg);
 }
+
 .port-tab:nth-child(2) {
 	background-image: url(../img/Portfolio/food.jpg);
 }
+
 .port-tab:nth-child(3) {
 	background-image: url(../img/Portfolio/panda.jpg);
 }
+
 .port-tab:nth-child(4) {
 	background-image: url(../img/Portfolio/psycho.jpg);
 }
+
 .port-tab:nth-child(5) {
 	background-image: url(../img/Portfolio/uber.jpg);
 }
+
 .port-tab:nth-child(6) {
 	background-image: url(../img/Portfolio/15.jpg);
 }
@@ -517,6 +574,7 @@ footer {
 	transition: opacity .3s ease-in;
 	opacity: 0;
 }
+
 .box-show {
 	opacity: 1;
 }
@@ -525,6 +583,9 @@ footer {
 	display: flex;
 	flex-direction: column;
 	row-gap: 15px;
+	opacity: 0;
+	animation: fadeIn .5s ease-in forwards;
+	animation-delay: 1.4s;
 }
 
 .header-contacts a {
@@ -537,6 +598,7 @@ footer {
 	[class*="__container"] {
 		max-width: 900px;
 	}
+
 	.prices-info {
 		grid-template-columns: 1fr;
 		justify-content: start;
@@ -546,6 +608,7 @@ footer {
 		display: flex;
 		justify-content: center;
 	}
+
 	.footer-img {
 		display: none;
 	}
@@ -563,6 +626,12 @@ footer {
 	.port-tab {
 		height: 300px;
 		width: 300px;
+		filter: saturate(1);
+
+	}
+
+	.port-tab h5 {
+		font-size: 14px;
 	}
 }
 
@@ -570,55 +639,82 @@ footer {
 	[class*="__container"] {
 		max-width: 600px;
 	}
+
 	.skill-tab {
 		width: 250px;
 		height: 350px;
 	}
+
 	.port-tab {
 		height: 250px;
 		width: 250px;
-	 }
-	 .footer-info {
+	}
+
+	.port-tab h5 {
+		padding: 2px 7px;
+	}
+
+	.footer-info {
 		width: 100%;
-	 }
+	}
 }
 
 @media (max-width: 600px) {
 	[class*="__container"] {
 		max-width: 400px;
 	}
+
 	.about-me-photo img {
 		width: 100%;
-	 }
+	}
+
+	.subtitle {
+		font-size: 26px;
+	}
+
 	.about-me {
 		grid-template-columns: 1fr;
 	}
+
 	.exp-tabs {
 		grid-template-columns: 1fr;
 		grid-template-rows: repeat(2, 1fr);
 		row-gap: 25px;
 	}
+
 	.skill-tab {
 		width: 400px;
 		height: 250px;
-	 }
-	 .port-tab {
+	}
+
+	.port-tab {
 		height: 180px;
 		width: 180px;
-	 }
-	 .contacts__form {
-		grid-template: 45px 190px 45px/repeat(2, 160px)	
-	 }
-	 .promo-title h1 {
+	}
+
+	.port-tab h5 {
+		font-size: 10px;
+	}
+
+	.contacts__form {
+		grid-template: 45px 190px 45px/repeat(2, 160px)
+	}
+
+	.promo-title h1 {
 		font-weight: 700;
 		font-size: 52px;
 		line-height: 55px;
-	 }	
-	 .promo-links {
+	}
+
+	.promo-links {
 		align-items: flex-start;
 		flex-direction: column;
 		row-gap: 15px;
-	 }
+	}
+
+	.prices-tabs h5 {
+		font-size: 14px;
+	}
 }
 
 @media (max-width: 400px) {
@@ -627,6 +723,11 @@ footer {
 		flex-direction: column;
 		align-items: flex-start;
 	}
+
+	.subtitle {
+		font-size: 24px;
+	}
+
 	.skill-tab {
 		width: 360px;
 	}
