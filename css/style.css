@@ -103,6 +103,17 @@ html {
 	scroll-behavior: smooth;
 }
 
+.policy-body {
+	background-image: url(../img/bg.jpg);
+}
+
+.policy-body p {
+	margin: 50px auto;
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 15px;
+	border-radius: 15px;
+}
+
 /*Other styles*/
 
 header {
