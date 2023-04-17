@@ -11,6 +11,7 @@
 		opacity: 0;
 		left: 50%;
 	}
+
 	100% {
 		left: -15px;
 	}
@@ -149,12 +150,13 @@ header {
 }
 
 .promo-title h2 {
-	opacity: 0;
+
 	font-weight: 700;
 	font-size: 22px;
 	line-height: 24px;
-	animation: fadeIn .5s ease-in forwards;
-	animation-delay: .7s;
+	/* animation: fadeIn .5s ease-in forwards;
+	animation-delay: .7s;	
+	opacity: 0; */
 }
 
 .promo-name::before {
@@ -166,25 +168,26 @@ header {
 	z-index: -1;
 	top: -12px;
 	border-radius: 50px;
-	animation: dotMove .8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+	left: -15px;
+	/* animation: dotMove .8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards; */
 }
 
 .promo-title h1 {
 	font-weight: 700;
 	font-size: 62px;
 	line-height: 60px;
-	opacity: 0;
+	/* opacity: 0;
 	animation: fadeIn .5s ease-in forwards;
-	animation-delay: 1s;
+	animation-delay: 1s; */
 }
 
 .promo-links {
 	column-gap: 50px;
 	display: flex;
 	align-items: center;
-	opacity: 0;
+	/* opacity: 0;
 	animation: fadeIn .5s ease-in forwards;
-	animation-delay: 1.2s;
+	animation-delay: 1.2s; */
 }
 
 .promo-links button,
@@ -198,9 +201,9 @@ header {
 	background: var(--main-color);
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 	transition: background-color .2s ease-in-out;
-	opacity: 0;
+	/* opacity: 0;
 	animation: fadeIn .5s ease-in forwards;
-	animation-delay: 1.2s;
+	animation-delay: 1.2s; */
 }
 
 .promo-links button:hover,
@@ -227,11 +230,12 @@ header {
 	column-gap: 20px;
 }
 
+/* 
 .socials-header {
 	opacity: 0;
 	animation: fadeIn .5s ease-in forwards;
 	animation-delay: 1.3s;
-}
+} */
 
 .socials a {
 	transition: transform .2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -270,7 +274,7 @@ header {
 	margin-left: 25px;
 }
 
-.subtitle::after{
+.subtitle::after {
 	position: absolute;
 	content: '';
 	background-color: #ffa600;
@@ -304,6 +308,7 @@ header {
 
 .about-me-info p:nth-child(3) {
 	font-weight: 400;
+	margin-left: 25px;
 }
 
 .exp,
@@ -373,7 +378,7 @@ header {
 
 .skill-tab p {
 	font-weight: 500;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 18px;
 }
 
@@ -583,9 +588,9 @@ footer {
 	display: flex;
 	flex-direction: column;
 	row-gap: 15px;
-	opacity: 0;
+	/* opacity: 0;
 	animation: fadeIn .5s ease-in forwards;
-	animation-delay: 1.4s;
+	animation-delay: 1.4s; */
 }
 
 .header-contacts a {
@@ -715,6 +720,11 @@ footer {
 	.prices-tabs h5 {
 		font-size: 14px;
 	}
+	
+	.promo-title {
+		justify-content: flex-start;
+		margin-top: 150px;
+	}
 }
 
 @media (max-width: 400px) {
@@ -730,5 +740,36 @@ footer {
 
 	.skill-tab {
 		width: 360px;
+	}
+
+	.promo-title h1 {
+		font-size: 46px;
+		line-height: 45px;
+	}
+
+	.promo-title {
+		margin-left: 20px;
+	}
+
+	.about-me-info p:nth-child(3) {
+		margin-left: 10px;
+		width: 95%;
+	}
+
+	.exp-tab {
+		margin-left: 15px;
+	}
+
+	.prices-info {
+		margin: 0 15px;
+	}
+
+	.port-tab h5 {
+		font-size: 16px;
+	}
+
+	.port-tab {
+		height: 300px;
+		width: 300px;
 	}
 }
