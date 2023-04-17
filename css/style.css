@@ -11,6 +11,7 @@
 		opacity: 0;
 		left: 50%;
 	}
+
 	100% {
 		left: -15px;
 	}
@@ -228,6 +229,7 @@ header {
 	display: flex;
 	column-gap: 20px;
 }
+
 /* 
 .socials-header {
 	opacity: 0;
@@ -272,7 +274,7 @@ header {
 	margin-left: 25px;
 }
 
-.subtitle::after{
+.subtitle::after {
 	position: absolute;
 	content: '';
 	background-color: #ffa600;
@@ -718,6 +720,11 @@ footer {
 	.prices-tabs h5 {
 		font-size: 14px;
 	}
+	
+	.promo-title {
+		justify-content: flex-start;
+		margin-top: 150px;
+	}
 }
 
 @media (max-width: 400px) {
@@ -733,5 +740,36 @@ footer {
 
 	.skill-tab {
 		width: 360px;
+	}
+
+	.promo-title h1 {
+		font-size: 46px;
+		line-height: 45px;
+	}
+
+	.promo-title {
+		margin-left: 20px;
+	}
+
+	.about-me-info p:nth-child(3) {
+		margin-left: 10px;
+		width: 95%;
+	}
+
+	.exp-tab {
+		margin-left: 15px;
+	}
+
+	.prices-info {
+		margin: 0 15px;
+	}
+
+	.port-tab h5 {
+		font-size: 16px;
+	}
+
+	.port-tab {
+		height: 300px;
+		width: 300px;
 	}
 }

@@ -13,12 +13,12 @@ $mail->CharSet = 'utf-8';
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.mail.ru';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'epos.91@mail.ru';                 // Наш логин
-$mail->Password = 'vMXpMXG0dWUJBysM6jpf';                           // Наш пароль от ящика
+$mail->Username = '';                 // Наш логин
+$mail->Password = '';                           // Наш пароль от ящика
 $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 465;                                    // TCP port to connect to
  
-$mail->setFrom('epos.91@mail.ru', 'Рассылка');   // От кого письмо 
+$mail->setFrom('epos.91@mail.ru', 'Заявка с сайта');   // От кого письмо 
 $mail->addAddress('i@rpchelkin.ru');     // Add a recipient
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
@@ -28,12 +28,12 @@ $mail->addAddress('i@rpchelkin.ru');     // Add a recipient
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$mail->Subject = 'Заявка с сайта';
+$mail->Subject = 'Вам новое сообщение от посетителя сайта';
 $mail->Body    = '
-		Пользователь оставил данные <br> 
-	Имя: ' . $name . ' <br>
-	Почта: ' . $email . '<br>
-	Комментарий: ' . $comment . '';
+		Пользователь оставил данные <br> <br> 
+	<b>Имя: </b> ' . $name . ' <br>
+	<b>Почта: </b> ' . $email . '<br>
+	<b>Комментарий: </b> ' . $comment . '';
 
 if(!$mail->send()) {
     return false;
